@@ -12,4 +12,11 @@
     <string name="validate_text">Save for Validation</string>
     <string name="skip_text">Skip</string>
     <string name="number">number</string>
+    <string name="inventory">Physical Inventory</string>
+    <string name="tempOrg1">Microsoft</string>
+    <string name="tempOrg2">Google</string>
+    <string name="tempOrg3">Oracle</string>
+    <string name="OrgsTitle">Organizations</string>
+    <string name="ListsTitle">Lists</string>
+    <string name="tempList1">Meeting Room 26A</string>
 </resources>

@@ -15,7 +15,7 @@ public class new_scan extends AppCompatActivity {
     }
 
     public void clicked_add_WAP(View view) {
-        Toast.makeText(getApplicationContext(),"Pulls up barcode scanner", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Adds WAP data to database", Toast.LENGTH_LONG).show();
     }
     public void clicked_validate(View view) {
         Toast.makeText(getApplicationContext(),"Option to validate later", Toast.LENGTH_LONG).show();

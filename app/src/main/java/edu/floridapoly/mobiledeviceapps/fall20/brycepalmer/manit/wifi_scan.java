@@ -31,8 +31,13 @@ public class wifi_scan extends AppCompatActivity {
     }
 
     public void clicked_previousScanButton(View view) {
-        Toast.makeText(getApplicationContext(),"Shows the last device scanned", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Shows the map of the last scan", Toast.LENGTH_LONG).show();
         //startActivity(previousScan_intent);
+    }
+
+    public void clicked_validate(View view) {
+        Intent intent = new Intent(wifi_scan.this, ValidateWAP.class);
+        startActivity(intent);
     }
 
     //new scan

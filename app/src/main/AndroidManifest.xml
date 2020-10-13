@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".new_scan"></activity>
+        <activity android:name=".ValidateWAP"></activity>
+        <activity android:name=".PhysicalInventory_List_Details" />
+        <activity android:name=".PhysicalInventory_Lists" />
+        <activity android:name=".OrganizationPage" />
+        <activity android:name=".new_scan" />
         <activity android:name=".wifi_scan" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Organizations">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

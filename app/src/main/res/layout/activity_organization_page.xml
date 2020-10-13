@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".OrganizationPage">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/org_title"
+        android:textSize="30dp"
+        />
+
+    <Button
+        android:id="@+id/inventory"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/inventory"
+        android:textSize="8pt"
+        android:paddingVertical="20dp"
+        android:onClick="clicked_inventory"
+        />
+    <Button
+        android:id="@+id/wifiScan"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/wifiScan"
+        android:textSize="8pt"
+
+        android:paddingVertical="20dp"
+        android:onClick="clicked_wifi"/>
+
+</LinearLayout>

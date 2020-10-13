@@ -27,12 +27,22 @@
         android:onClick="clicked_newScanButton"/>
 
     <Button
+        android:id="@+id/validate_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Validate WAPs"
+        android:textSize="8pt"
+        android:layout_gravity="center"
+        android:paddingVertical="20dp"
+        android:onClick="clicked_validate"/>
+
+    <Button
         android:id="@+id/previousScan_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:paddingVertical="20dp"
-        android:text="Previous Scan"
+        android:text="WAP Map"
         android:textSize="8pt"
         android:onClick="clicked_previousScanButton"/>
 
