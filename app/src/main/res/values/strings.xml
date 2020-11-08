@@ -5,7 +5,7 @@
     <string name="previousScan_text">Shows the last device scanned</string>
     <string name="wifiScan">to wifi scan activity</string>
     <string name="MAC">"MAC: "</string>
-    <string name="newWAP_text">New WAP found</string>
+    <string name="newWAP_text">New WIFI Scan</string>
     <string name="lat">Latitude</string>
     <string name="lon">Longitude</string>
     <string name="addWAP">Add WAP</string>
@@ -19,4 +19,16 @@
     <string name="OrgsTitle">Organizations</string>
     <string name="ListsTitle">Lists</string>
     <string name="tempList1">Meeting Room 26A</string>
+    <string name="new_scan">Scan</string>
+    <string name="save">Save WAP</string>
+    <string name="wap_name">WAP Name: </string>
+    <string name="enter_name">Enter Name</string>
+    <string name="wifi_scan">WiFi Scan</string>
+    <string name="save_wap">Save WAP</string>
+    <string name="ssid">SSID: </string>
+    <string name="mac">MAC Address: </string>
+    <string name="ip">IP Address: </string>
+    <string name="signalstrength">Signal Strength: </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

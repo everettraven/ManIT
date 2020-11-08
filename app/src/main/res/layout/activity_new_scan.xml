@@ -22,67 +22,120 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/MAC_text"
+            android:id="@+id/wap_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/MAC"
+            android:text="@string/wap_name"
             tools:layout_editor_absoluteX="92dp"
             tools:layout_editor_absoluteY="105dp" />
         <EditText
+            android:id="@+id/wap_name_gather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/number"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/lat_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lat"
-            tools:layout_editor_absoluteX="111dp"
-            tools:layout_editor_absoluteY="148dp" />
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/number"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/lon_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/lon"
-            tools:layout_editor_absoluteX="129dp"
-            tools:layout_editor_absoluteY="186dp" />
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/number"/>
+            android:hint="@string/enter_name"/>
     </LinearLayout>
 
     <Button
-        android:id="@+id/add_WAP_button"
+        android:id="@+id/wap_scan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/addWAP"
+        android:text="@string/new_scan"
         tools:layout_editor_absoluteX="99dp"
         tools:layout_editor_absoluteY="355dp"
         android:layout_gravity="center"
-        android:onClick="clicked_add_WAP"/>
+        android:onClick="clicked_scan_WAP"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/wap_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wap_name"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="105dp" />
+        <TextView
+            android:id="@+id/wap_name_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/ssid_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ssid"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="105dp" />
+        <TextView
+            android:id="@+id/ssid_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/mac_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mac"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="105dp" />
+        <TextView
+            android:id="@+id/mac_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/ip_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ip"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="105dp" />
+        <TextView
+            android:id="@+id/ip_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/signalstrength_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signalstrength"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="105dp" />
+        <TextView
+            android:id="@+id/signalstrength_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/validate_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/validate_text"
+        android:text="@string/save_wap"
         tools:layout_editor_absoluteX="71dp"
         tools:layout_editor_absoluteY="432dp"
         android:layout_gravity="center"
