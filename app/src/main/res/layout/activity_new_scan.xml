@@ -131,8 +131,42 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/longitue_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/longitude"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="105dp" />
+        <TextView
+            android:id="@+id/longitude_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/latitude_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/latitude"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="105dp" />
+        <TextView
+            android:id="@+id/latitude_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
     <Button
-        android:id="@+id/validate_button"
+        android:id="@+id/save_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/save_wap"
