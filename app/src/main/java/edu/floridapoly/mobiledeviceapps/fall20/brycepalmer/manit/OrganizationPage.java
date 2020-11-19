@@ -20,19 +20,19 @@ public class OrganizationPage extends AppCompatActivity {
         TextView title = (TextView) findViewById(R.id.org_title);
         Intent callerIntent = getIntent();
         title.setText(callerIntent.getStringExtra("Organization"));
-        OrgId = callerIntent.getIntExtra("OrgID", -1);
+        OrgId = callerIntent.getIntExtra(Organizations.ORG_ID_KEY, -1);
     }
 
     public void clicked_wifi(View view) {
         Intent startIntent = new Intent(OrganizationPage.this, wifi_scan.class);
-        startIntent.putExtra("OrgID", OrgId);
+        startIntent.putExtra(Organizations.ORG_ID_KEY, OrgId);
         startActivity(startIntent);
     }
 
     public void clicked_inventory(View view)
     {
         Intent intent = new Intent(OrganizationPage.this, PhysicalInventory_Lists.class);
-        intent.putExtra("OrgID", OrgId);
+        intent.putExtra(Organizations.ORG_ID_KEY, OrgId);
         startActivity(intent);
     }
 }

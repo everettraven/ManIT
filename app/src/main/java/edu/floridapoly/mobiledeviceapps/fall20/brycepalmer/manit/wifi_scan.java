@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 public class wifi_scan extends AppCompatActivity {
 
+    private int OrgID;
     //Intent newScan_intent = new Intent(wifi_scan.this, new_scan.class);
     //Intent previousScan_intent = new Intent(wifi_scan.this, previous_scan.class);
 
@@ -18,6 +19,8 @@ public class wifi_scan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wifi_scan);
 
+        OrgID = getIntent().getExtras().getInt(Organizations.ORG_ID_KEY);
+
         //new scan
         Button newScanButton = (Button) findViewById(R.id.newScan_button);
         Button previousScanButton = (Button) findViewById(R.id.previousScan_button);
@@ -25,18 +28,19 @@ public class wifi_scan extends AppCompatActivity {
     }
 
     public void clicked_newScanButton(View view) {
-        Toast.makeText(getApplicationContext(),"Switches to activity to enter a new scan", Toast.LENGTH_LONG).show();
         Intent newScan_intent = new Intent(wifi_scan.this, new_scan.class);
+        newScan_intent.putExtra(Organizations.ORG_ID_KEY, OrgID);
         startActivity(newScan_intent);
     }
 
     public void clicked_previousScanButton(View view) {
-        Toast.makeText(getApplicationContext(),"Shows the map of the last scan", Toast.LENGTH_LONG).show();
+        Intent wapmap_intent = new Intent(wifi_scan.this, WiFiMapsActivity.class);
         //startActivity(previousScan_intent);
     }
 
     public void clicked_validate(View view) {
         Intent intent = new Intent(wifi_scan.this, ValidateWAP.class);
+        intent.putExtra(Organizations.ORG_ID_KEY, OrgID);
         startActivity(intent);
     }
 

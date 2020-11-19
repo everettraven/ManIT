@@ -1,5 +1,6 @@
 package edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.models;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -20,6 +21,9 @@ public interface WAPDao {
 
     @Query("SELECT * FROM WAPS")
     List<WAPS> getAll();
+
+    @Query("SELECT * FROM WAPS WHERE OrgID = (:OrgID)")
+    LiveData<List<WAPS>> getAllForOrg(int OrgID);
 
     //Can add more queries as needed
 

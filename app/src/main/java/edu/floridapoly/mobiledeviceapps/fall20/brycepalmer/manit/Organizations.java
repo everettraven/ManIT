@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -32,6 +33,11 @@ import edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.models.OrgsDao;
 public class Organizations extends AppCompatActivity {
     // Create a variable to hold the View Model for this particular view
     private OrgViewModel mOrgViewModel;
+
+    public static String ORG_ID_KEY = "ORG_ID";
+    public static String ORG_CREATION_KEY = "ORG_CREATE";
+
+    public static int ORG_CREATE_REQUEST_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +65,29 @@ public class Organizations extends AppCompatActivity {
 
     public void clicked_add(View view) {
         // Test adding a new organization -- Keeping it here to show how we add a new value
-        Orgs org_to_add = new Orgs("Jimbos Garage");
-        mOrgViewModel.insert(org_to_add);
-        Toast.makeText(this, "Add Action was clicked. This would add a new organization", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, AddOrganization.class);
+        startActivityForResult(intent, ORG_CREATE_REQUEST_CODE);
     }
 
     public void clicked_edit(View view) {
         Toast.makeText(this, "Edit Action was clicked. This would allow editing of an organization", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode != ORG_CREATE_REQUEST_CODE){
+            return;
+        }
+
+        if(resultCode == Activity.RESULT_OK){
+            if(data != null)
+            {
+                Orgs org = new Orgs(data.getStringExtra(ORG_CREATION_KEY));
+                mOrgViewModel.insert(org);
+            }
+        }
+
+        return;
     }
 }

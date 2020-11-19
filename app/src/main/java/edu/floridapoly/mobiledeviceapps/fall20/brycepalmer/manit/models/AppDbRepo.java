@@ -108,4 +108,6 @@ public class AppDbRepo {
         return wapsDao.getAll();
     }
 
+    public LiveData<List<WAPS>> getWAPSForOrg(int OrgID) { return wapsDao.getAllForOrg(OrgID); }
+
 }

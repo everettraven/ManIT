@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.net.DhcpInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -19,9 +20,12 @@ import androidx.core.app.ActivityCompat;
 
 import java.util.Formatter;
 
+import edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.models.AppDbRepo;
+import edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.models.WAPS;
+
 public class new_scan extends AppCompatActivity {
 
-
+    private int OrgID;
     String wapname;
     String SSID;
     int IP;
@@ -35,6 +39,8 @@ public class new_scan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_scan);
+
+        OrgID = getIntent().getExtras().getInt(Organizations.ORG_ID_KEY);
     }
 
     //getSystemService(Context.WIFI_SERVICE);
@@ -53,7 +59,7 @@ public class new_scan extends AppCompatActivity {
         wapname = wng.getText().toString();
         sigstrength = info.getRssi();
         MAC = info.getBSSID();
-        IP = info.getIpAddress();
+        IP = manager.getDhcpInfo().serverAddress;
         SSID = info.getSSID();
         latitude = location.getLatitude();
         longitude = location.getLongitude();
@@ -106,6 +112,18 @@ public class new_scan extends AppCompatActivity {
 
     }
     public void clicked_save(View view) {
+
+        AppDbRepo dbRepo = new AppDbRepo(getApplication());
+
+        WAPS wap = new WAPS();
+        wap.setValidated(true);
+        wap.setRadius(15.0);
+        wap.setLongitude(longitude);
+        wap.setLatitude(latitude);
+        wap.setMAC(MAC);
+        wap.setOrgID(OrgID);
+
+        dbRepo.insert(wap);
 
         Toast.makeText(getApplicationContext(),"Option to validate later", Toast.LENGTH_LONG).show();
     }

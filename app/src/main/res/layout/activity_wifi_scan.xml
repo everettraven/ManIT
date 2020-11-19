@@ -30,7 +30,7 @@
         android:id="@+id/validate_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Validate WAPs"
+        android:text="View Saved WAPs"
         android:textSize="8pt"
         android:layout_gravity="center"
         android:paddingVertical="20dp"

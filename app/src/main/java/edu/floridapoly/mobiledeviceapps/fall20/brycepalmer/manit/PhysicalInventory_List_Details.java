@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,10 +22,17 @@ import edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.models.Items;
 import edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.models.ItemsListAdapter;
 import edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.models.ItemsViewModel;
 import edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.models.Lists;
+import edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.models.Orgs;
 
 public class PhysicalInventory_List_Details extends AppCompatActivity {
     private int ListId;
     private ItemsViewModel mItemsViewModel;
+
+    public static String ITEM_NAME_KEY = "ITEM_NAME";
+    public static String ITEM_SERIAL_KEY = "ITEM_SERIAL";
+    public static String ITEM_DESC_KEY = "ITEM_DESC";
+
+    private static int ITEM_CREATE_REQUEST_CODE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +65,29 @@ public class PhysicalInventory_List_Details extends AppCompatActivity {
     }
 
     public void clicked_add(View view) {
-        Items item = new Items();
-        item.setName("Test Item");
-        item.setListID(ListId);
-        mItemsViewModel.insert(item);
-        Toast.makeText(this, "Add button was clicked, this would add a new item to the list", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, AddItem.class);
+        startActivityForResult(intent, ITEM_CREATE_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode != ITEM_CREATE_REQUEST_CODE){
+            return;
+        }
+
+        if(resultCode == Activity.RESULT_OK){
+            if(data != null)
+            {
+                Items item = new Items();
+                item.setListID(ListId);
+                item.setSerialNumber(data.getStringExtra(ITEM_SERIAL_KEY));
+                item.setDescription(data.getStringExtra(ITEM_DESC_KEY));
+                item.setName(data.getStringExtra(ITEM_NAME_KEY));
+                mItemsViewModel.insert(item);
+            }
+        }
+
+        return;
     }
 }

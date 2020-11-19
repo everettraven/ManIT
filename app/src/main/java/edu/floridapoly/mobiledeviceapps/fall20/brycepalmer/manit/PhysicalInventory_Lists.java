@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,13 +27,18 @@ import edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.models.Orgs;
 public class PhysicalInventory_Lists extends AppCompatActivity {
     private int OrgId;
     private InventoryListsViewModel mListsViewModel;
+
+    public static String LIST_CREATION_KEY = "LIST_CREATE";
+
+    private static int LIST_CREATE_REQUEST_CODE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_physical_inventory);
 
         Intent callerIntent = getIntent();
-        OrgId = callerIntent.getIntExtra("OrgID", -22);
+        OrgId = callerIntent.getIntExtra(Organizations.ORG_ID_KEY, -22);
 
         // Set up all of our view variables
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
@@ -61,14 +67,31 @@ public class PhysicalInventory_Lists extends AppCompatActivity {
     }
 
     public void clicked_add(View view) {
-        Lists list = new Lists();
-        list.setName("Test List");
-        list.setOrgID(OrgId);
-        mListsViewModel.insert(list);
-        Toast.makeText(this, "Add clicked, would add a new List.", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, AddInventoryList.class);
+        startActivityForResult(intent, LIST_CREATE_REQUEST_CODE);
     }
 
     public void clicked_edit(View view) {
         Toast.makeText(this, "Edit clicked, would edit a List.", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode != LIST_CREATE_REQUEST_CODE){
+            return;
+        }
+
+        if(resultCode == Activity.RESULT_OK){
+            if(data != null)
+            {
+                Lists list = new Lists();
+                list.setOrgID(OrgId);
+                list.setName(data.getStringExtra(LIST_CREATION_KEY));
+                mListsViewModel.insert(list);
+            }
+        }
+
+        return;
     }
 }
