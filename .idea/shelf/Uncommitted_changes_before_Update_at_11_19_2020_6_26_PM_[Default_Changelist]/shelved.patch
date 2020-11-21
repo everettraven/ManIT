@@ -1,0 +1,732 @@
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\r\n\r\nandroid {\r\n    compileSdkVersion 30\r\n    buildToolsVersion \"30.0.2\"\r\n\r\n    defaultConfig {\r\n        applicationId \"edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit\"\r\n        minSdkVersion 23\r\n        targetSdkVersion 30\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n}\r\n\r\ndependencies {\r\n    implementation fileTree(dir: \"libs\", include: [\"*.jar\"])\r\n    implementation 'androidx.appcompat:appcompat:1.1.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'\r\n    implementation 'com.google.android.material:material:1.0.0'\r\n    implementation 'androidx.legacy:legacy-support-v4:1.0.0'\r\n    implementation 'androidx.recyclerview:recyclerview:1.1.0'\r\n    testImplementation 'junit:junit:4.12'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.1'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'\r\n\r\n    def room_version = \"2.2.5\"\r\n    implementation \"androidx.room:room-runtime:$room_version\"\r\n    annotationProcessor \"androidx.room:room-compiler:$room_version\"\r\n\r\n    // optional - RxJava support for Room\r\n    implementation \"androidx.room:room-rxjava2:$room_version\"\r\n\r\n    // optional - Guava support for Room, including Optional and ListenableFuture\r\n    implementation \"androidx.room:room-guava:$room_version\"\r\n\r\n    // optional - Test helpers\r\n    testImplementation \"androidx.room:room-testing:$room_version\"\r\n\r\n    implementation \"androidx.lifecycle:lifecycle-extensions:2.2.0\"\r\n    implementation \"androidx.lifecycle:lifecycle-viewmodel:2.2.0\"\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision d00d755471a0f7ce957fae86e1c77546524b643c)
++++ app/build.gradle	(date 1605732711333)
+@@ -1,4 +1,10 @@
++plugins {
++    id 'com.android.application'
++    id 'com.google.gms.google-services'
++}
++
+ apply plugin: 'com.android.application'
++apply plugin: 'com.google.gms.google-services'
+ 
+ android {
+     compileSdkVersion 30
+@@ -53,4 +59,11 @@
+     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+     implementation "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
+ 
++
++    implementation 'com.google.firebase:firebase-database:19.5.1'
++    implementation 'com.wonderkiln:camerakit:0.13.1'
++    implementation 'com.google.firebase:firebase-core:16.0.3'
++    implementation 'com.google.firebase:firebase-ml-vision:17.0.0'
++    implementation 'com.github.d-max:spots-dialog:1.1@aar'
++
+ }
+\ No newline at end of file
+Index: app/google-services.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/google-services.json	(date 1605734383990)
++++ app/google-services.json	(date 1605734383990)
+@@ -0,0 +1,40 @@
++{
++  "project_info": {
++    "project_number": "953470791279",
++    "firebase_url": "https://manit-524a0.firebaseio.com",
++    "project_id": "manit-524a0",
++    "storage_bucket": "manit-524a0.appspot.com"
++  },
++  "client": [
++    {
++      "client_info": {
++        "mobilesdk_app_id": "1:953470791279:android:8b3d70cd77b53abe17279a",
++        "android_client_info": {
++          "package_name": "edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit"
++        }
++      },
++      "oauth_client": [
++        {
++          "client_id": "953470791279-5mf519ui6n00ihg53mkka54a80b6c0iu.apps.googleusercontent.com",
++          "client_type": 3
++        }
++      ],
++      "api_key": [
++        {
++          "current_key": "AIzaSyBmSHQ4oNjO1B2R6Rg2qyox3uiO3ESgI1o"
++        }
++      ],
++      "services": {
++        "appinvite_service": {
++          "other_platform_oauth_client": [
++            {
++              "client_id": "953470791279-5mf519ui6n00ihg53mkka54a80b6c0iu.apps.googleusercontent.com",
++              "client_type": 3
++            }
++          ]
++        }
++      }
++    }
++  ],
++  "configuration_version": "1"
++}
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision d00d755471a0f7ce957fae86e1c77546524b643c)
++++ .idea/misc.xml	(date 1605482436315)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(date 1605482436180)
++++ .idea/compiler.xml	(date 1605482436180)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="1.8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"RemoteRepositoriesConfiguration\">\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"central\" />\r\n      <option name=\"name\" value=\"Maven Central repository\" />\r\n      <option name=\"url\" value=\"https://repo1.maven.org/maven2\" />\r\n    </remote-repository>\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"jboss.community\" />\r\n      <option name=\"name\" value=\"JBoss Community repository\" />\r\n      <option name=\"url\" value=\"https://repository.jboss.org/nexus/content/repositories/public/\" />\r\n    </remote-repository>\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"BintrayJCenter\" />\r\n      <option name=\"name\" value=\"BintrayJCenter\" />\r\n      <option name=\"url\" value=\"https://jcenter.bintray.com/\" />\r\n    </remote-repository>\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"Google\" />\r\n      <option name=\"name\" value=\"Google\" />\r\n      <option name=\"url\" value=\"https://dl.google.com/dl/android/maven2/\" />\r\n    </remote-repository>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/jarRepositories.xml	(revision d00d755471a0f7ce957fae86e1c77546524b643c)
++++ .idea/jarRepositories.xml	(date 1605732499476)
+@@ -21,5 +21,10 @@
+       <option name="name" value="Google" />
+       <option name="url" value="https://dl.google.com/dl/android/maven2/" />
+     </remote-repository>
++    <remote-repository>
++      <option name="id" value="MavenLocal" />
++      <option name="name" value="MavenLocal" />
++      <option name="url" value="file:/$USER_HOME$/.m2/repository" />
++    </remote-repository>
+   </component>
+ </project>
+\ No newline at end of file
+Index: app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/new_scan.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit;\r\n\r\nimport android.Manifest;\r\nimport android.content.Context;\r\nimport android.content.pm.PackageManager;\r\nimport android.location.LocationManager;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.EditText;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\nimport android.location.Location;\r\nimport android.net.wifi.ScanResult;\r\nimport android.net.wifi.WifiManager;\r\nimport android.net.wifi.WifiInfo;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.core.app.ActivityCompat;\r\n\r\nimport java.util.Formatter;\r\n\r\npublic class new_scan extends AppCompatActivity {\r\n\r\n\r\n    String wapname;\r\n    String SSID;\r\n    int IP;\r\n    String MAC;\r\n    int sigstrength;\r\n\r\n    double latitude;\r\n    double longitude;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_new_scan);\r\n    }\r\n\r\n    //getSystemService(Context.WIFI_SERVICE);\r\n    public void clicked_scan_WAP(View view) {\r\n        WifiManager manager = (WifiManager) super.getApplicationContext().getSystemService(Context.WIFI_SERVICE);\r\n        WifiInfo info = manager.getConnectionInfo();\r\n\r\n        LocationManager locman = (LocationManager) getSystemService(Context.LOCATION_SERVICE);\r\n        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {\r\n            Toast.makeText(getApplicationContext(),\"Turn your GPS ON!!!\", Toast.LENGTH_LONG).show();\r\n            return;\r\n        }\r\n        Location location = locman.getLastKnownLocation(LocationManager.GPS_PROVIDER);\r\n\r\n        EditText wng = (EditText) findViewById(R.id.wap_name_gather);\r\n        wapname = wng.getText().toString();\r\n        sigstrength = info.getRssi();\r\n        MAC = info.getBSSID();\r\n        IP = info.getIpAddress();\r\n        SSID = info.getSSID();\r\n        latitude = location.getLatitude();\r\n        longitude = location.getLongitude();\r\n\r\n        //signal strength strings\r\n        String Excellent = \"Excellent\"; // >-50\r\n        String Good = \"Good\"; // -50 t0 -60 <\r\n        String Fair = \"Fair\"; // -60 to -70 <\r\n        String Weak = \"Weak\"; // -70 and greater\r\n\r\n        Toast.makeText(getApplicationContext(),\"stop 1\", Toast.LENGTH_LONG).show();\r\n        if (wapname.equals(\"\"))\r\n        {\r\n            Toast.makeText(getApplicationContext(),\"Enter a WAP Name Then Try Again stop 2\", Toast.LENGTH_LONG).show();\r\n        }\r\n        else\r\n        {\r\n            Toast.makeText(getApplicationContext(),\"stop 3\", Toast.LENGTH_LONG).show();\r\n            TextView name = (TextView) findViewById(R.id.wap_name_holder);\r\n            name.setText(wapname);\r\n            TextView ssid = (TextView) findViewById(R.id.ssid_holder);\r\n            ssid.setText(SSID);\r\n            TextView ip = (TextView) findViewById(R.id.ip_holder);\r\n            ip.setText(android.text.format.Formatter.formatIpAddress(IP));\r\n            TextView mac = (TextView) findViewById(R.id.mac_holder);\r\n            mac.setText(MAC);\r\n            TextView longi = (TextView) findViewById(R.id.longitude_holder);\r\n            longi.setText(String.valueOf(longitude));\r\n            TextView lati = (TextView) findViewById(R.id.latitude_holder);\r\n            lati.setText(String.valueOf(latitude));\r\n            TextView signalstrength = (TextView) findViewById(R.id.signalstrength_holder);\r\n            if(sigstrength > -50)\r\n            {\r\n                signalstrength.setText(Excellent);\r\n            }\r\n            else if( sigstrength <= -50 || sigstrength > -60)\r\n            {\r\n                signalstrength.setText(Good);\r\n            }\r\n            else if( sigstrength <= -60 || sigstrength > -70)\r\n            {\r\n                signalstrength.setText(Fair);\r\n            }\r\n            else if( sigstrength <= -70)\r\n            {\r\n                signalstrength.setText(Weak);\r\n            }\r\n\r\n        }\r\n\r\n    }\r\n    public void clicked_save(View view) {\r\n\r\n        Toast.makeText(getApplicationContext(),\"Option to validate later\", Toast.LENGTH_LONG).show();\r\n    }\r\n    public void clicked_skip(View view) {\r\n        Toast.makeText(getApplicationContext(),\"Option to skip entry\", Toast.LENGTH_LONG).show();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/new_scan.java	(revision d00d755471a0f7ce957fae86e1c77546524b643c)
++++ app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/new_scan.java	(date 1605483004209)
+@@ -53,7 +53,8 @@
+         wapname = wng.getText().toString();
+         sigstrength = info.getRssi();
+         MAC = info.getBSSID();
+-        IP = info.getIpAddress();
++        //IP = info.getIpAddress();
++        IP = manager.getDhcpInfo().serverAddress;
+         SSID = info.getSSID();
+         latitude = location.getLatitude();
+         longitude = location.getLongitude();
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"PLATFORM\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"1.8\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision d00d755471a0f7ce957fae86e1c77546524b643c)
++++ .idea/gradle.xml	(date 1605482436265)
+@@ -15,6 +15,7 @@
+           </set>
+         </option>
+         <option name="resolveModulePerSourceSet" value="false" />
++        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
+Index: app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/BarcodeScanner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/BarcodeScanner.java	(date 1605734603941)
++++ app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/BarcodeScanner.java	(date 1605734603941)
+@@ -0,0 +1,215 @@
++package edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit;
++
++import android.app.AlertDialog;
++import android.content.DialogInterface;
++import android.content.Intent;
++import android.content.pm.ActivityInfo;
++import android.graphics.Bitmap;
++import android.graphics.Rect;
++import android.net.Uri;
++import android.os.Bundle;
++import android.view.View;
++import android.widget.Button;
++import android.widget.Toast;
++
++import androidx.annotation.NonNull;
++import androidx.appcompat.app.AppCompatActivity;
++
++import com.google.android.gms.tasks.OnFailureListener;
++import com.google.android.gms.tasks.OnSuccessListener;
++import com.google.firebase.ml.vision.FirebaseVision;
++import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode;
++import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetector;
++import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetectorOptions;
++import com.google.firebase.ml.vision.common.FirebaseVisionImage;
++import com.wonderkiln.camerakit.CameraKitError;
++import com.wonderkiln.camerakit.CameraKitEvent;
++import com.wonderkiln.camerakit.CameraKitEventListener;
++import com.wonderkiln.camerakit.CameraKitImage;
++import com.wonderkiln.camerakit.CameraKitVideo;
++import com.wonderkiln.camerakit.CameraView;
++
++import java.util.List;
++
++import dmax.dialog.SpotsDialog;
++import edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.Helper.GraphicOverlay;
++import edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.Helper.RectOverlay;
++
++public class BarcodeScanner extends AppCompatActivity {
++
++    CameraView cameraView;
++    Button btnDetect;
++    AlertDialog waitingDialog;
++    GraphicOverlay graphicOverlay;
++
++    @Override
++    protected void onResume() {
++        super.onResume();
++        cameraView.start();
++    }
++
++    @Override
++    protected void onPause() {
++        super.onPause();
++        cameraView.stop();
++    }
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.barcode_scanner);
++
++        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
++
++        graphicOverlay = (GraphicOverlay)findViewById(R.id.graphic_overlay);
++        cameraView = (CameraView)findViewById(R.id.cameraview);
++        btnDetect = (Button)findViewById(R.id.btn_detect);
++        waitingDialog = new SpotsDialog.Builder()
++                .setContext(this)
++                .setMessage("Please wait")
++                .setCancelable(false)
++                .build();
++
++        btnDetect.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                cameraView.start();
++                cameraView.captureImage();
++                graphicOverlay.clear();
++
++            }
++        });
++
++        cameraView.addCameraKitListener(new CameraKitEventListener() {
++            @Override
++            public void onEvent(CameraKitEvent cameraKitEvent) {
++
++            }
++
++            @Override
++            public void onError(CameraKitError cameraKitError) {
++
++            }
++
++            @Override
++            public void onImage(CameraKitImage cameraKitImage) {
++                waitingDialog.show();
++                Bitmap bitmap = cameraKitImage.getBitmap();
++                bitmap = Bitmap.createScaledBitmap(bitmap, cameraView.getWidth(), cameraView.getHeight(), false);
++                cameraView.stop();
++
++                renDetector(bitmap);
++            }
++
++            @Override
++            public void onVideo(CameraKitVideo cameraKitVideo) {
++
++            }
++        });
++
++
++    }
++
++    private void renDetector(Bitmap bitmap) {
++        FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(bitmap);
++        FirebaseVisionBarcodeDetectorOptions options = new FirebaseVisionBarcodeDetectorOptions.Builder()
++                .setBarcodeFormats(
++                        FirebaseVisionBarcode.FORMAT_QR_CODE,
++                        FirebaseVisionBarcode.FORMAT_CODE_128
++                )
++                .build();
++        FirebaseVisionBarcodeDetector detector = FirebaseVision.getInstance().getVisionBarcodeDetector(options);
++
++        detector.detectInImage(image)
++                .addOnSuccessListener(new OnSuccessListener<List<FirebaseVisionBarcode>>() {
++                    @Override
++                    public void onSuccess(List<FirebaseVisionBarcode> firebaseVisionBarcodes) {
++                        Toast.makeText(edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.BarcodeScanner.this, "success", Toast.LENGTH_SHORT).show();
++                        processResult(firebaseVisionBarcodes);
++
++                    }
++                })
++                .addOnFailureListener(new OnFailureListener() {
++                    @Override
++                    public void onFailure(@NonNull Exception e) {
++                        Toast.makeText(edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.BarcodeScanner.this, e.getMessage(), Toast.LENGTH_SHORT).show();
++                    }
++                });
++    }
++
++    private void processResult(List<FirebaseVisionBarcode> firebaseVisionBarcodes) {
++        Toast.makeText(edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.BarcodeScanner.this, "processResult", Toast.LENGTH_SHORT).show();
++        for (FirebaseVisionBarcode item : firebaseVisionBarcodes) {
++
++            //Draw rectangle
++            Rect rectBounds = item.getBoundingBox();
++            RectOverlay rectOverlay = new RectOverlay(graphicOverlay, rectBounds);
++            graphicOverlay.add(rectOverlay);
++
++
++            Toast.makeText(edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.BarcodeScanner.this, "type", Toast.LENGTH_SHORT).show();
++            int value_type = item.getValueType();
++            //Toast.makeText(BarcodeScanner.this, item.getRawValue(), Toast.LENGTH_SHORT).show();
++
++
++
++            switch (value_type) {
++                case FirebaseVisionBarcode.TYPE_TEXT:
++                {
++                    androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
++                    builder.setMessage(item.getRawValue());
++                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
++                        @Override
++                        public void onClick(DialogInterface dialogInterface, int i) {
++                            Toast.makeText(edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.BarcodeScanner.this, "dialogDismiss", Toast.LENGTH_SHORT).show();
++                            dialogInterface.dismiss();
++                        }
++                    });
++                    androidx.appcompat.app.AlertDialog dialog = builder.create();
++                    dialog.show();
++                    Toast.makeText(edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.BarcodeScanner.this, "dialogShow", Toast.LENGTH_SHORT).show();
++                    Toast.makeText(edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.BarcodeScanner.this, "text", Toast.LENGTH_SHORT).show();
++                    Toast.makeText(edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.BarcodeScanner.this, item.getRawValue(), Toast.LENGTH_SHORT).show();
++                    break;
++                }
++
++
++                case FirebaseVisionBarcode.TYPE_URL:
++                {
++                    //start browser url
++                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getRawValue()));
++                    startActivity(intent);
++                }
++                break;
++
++                case FirebaseVisionBarcode.TYPE_CONTACT_INFO:
++                {
++                    String info = new StringBuilder("Name: ")
++                            .append(item.getContactInfo().getName().getFormattedName())
++                            .append("\n")
++                            .append("Address: ")
++                            .append(item.getContactInfo().getAddresses().get(0).getAddressLines())
++                            .append("\n")
++                            .append("Email: ")
++                            .append(item.getContactInfo().getEmails().get(0).getAddress())
++                            .toString();
++                    androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
++                    builder.setMessage(info);
++                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
++                        @Override
++                        public void onClick(DialogInterface dialogInterface, int i) {
++                            dialogInterface.dismiss();
++                        }
++                    });
++                    androidx.appcompat.app.AlertDialog dialog = builder.create();
++                    dialog.show();
++                }
++                break;
++
++                default:
++                    break;
++            }
++        }
++        waitingDialog.dismiss();
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/barcode_scanner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/barcode_scanner.xml	(date 1605733254375)
++++ app/src/main/res/layout/barcode_scanner.xml	(date 1605733254375)
+@@ -0,0 +1,40 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".BarcodeScanner">
++
++    <com.wonderkiln.camerakit.CameraView
++        android:id="@+id/cameraview"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent">
++
++        <edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.Helper.GraphicOverlay
++            android:id="@+id/graphic_overlay"
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"/>
++
++        <ImageView
++            android:id="@+id/viewFinder"
++            android:layout_width="210dp"
++            android:layout_height="60dp"
++            android:layout_gravity="center"
++            android:visibility="visible"
++            app:srcCompat="@drawable/focus_marker_fill" />
++
++
++    </com.wonderkiln.camerakit.CameraView>
++
++    <Button
++        android:id="@+id/btn_detect"
++        android:text="DETECT"
++        android:layout_alignParentBottom="true"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content">
++    </Button>
++
++
++
++</RelativeLayout>
+\ No newline at end of file
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Tue Oct 06 14:05:16 EDT 2020\r\ndistributionBase=GRADLE_USER_HOME\r\ndistributionPath=wrapper/dists\r\nzipStoreBase=GRADLE_USER_HOME\r\nzipStorePath=wrapper/dists\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-6.1.1-all.zip\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- gradle/wrapper/gradle-wrapper.properties	(revision d00d755471a0f7ce957fae86e1c77546524b643c)
++++ gradle/wrapper/gradle-wrapper.properties	(date 1605482436257)
+@@ -1,6 +1,6 @@
+-#Tue Oct 06 14:05:16 EDT 2020
++#Thu Nov 12 18:01:48 EST 2020
+ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-6.1.1-all.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-6.5-bin.zip
+Index: app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/Helper/GraphicOverlay.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/Helper/GraphicOverlay.java	(date 1605732115566)
++++ app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/Helper/GraphicOverlay.java	(date 1605732115566)
+@@ -0,0 +1,188 @@
++package edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.Helper;
++
++/*
++ * Copyright (C) The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++
++import android.content.Context;
++import android.graphics.Canvas;
++import android.util.AttributeSet;
++import android.view.View;
++
++import com.google.android.gms.vision.CameraSource;
++
++import java.util.HashSet;
++import java.util.Set;
++
++/**
++ * A view which renders a series of custom graphics to be overlayed on top of an associated preview
++ * (i.e., the camera preview).  The creator can add graphics objects, update the objects, and remove
++ * them, triggering the appropriate drawing and invalidation within the view.<p>
++ *
++ * Supports scaling and mirroring of the graphics relative the camera's preview properties.  The
++ * idea is that detection items are expressed in terms of a preview size, but need to be scaled up
++ * to the full view size, and also mirrored in the case of the front-facing camera.<p>
++ *
++ * Associated {@link Graphic} items should use the following methods to convert to view coordinates
++ * for the graphics that are drawn:
++ * <ol>
++ * <li>{@link Graphic#scaleX(float)} and {@link Graphic#scaleY(float)} adjust the size of the
++ * supplied value from the preview scale to the view scale.</li>
++ * <li>{@link Graphic#translateX(float)} and {@link Graphic#translateY(float)} adjust the coordinate
++ * from the preview's coordinate system to the view coordinate system.</li>
++ * </ol>
++ */
++public class GraphicOverlay extends View {
++    private final Object mLock = new Object();
++    private int mPreviewWidth;
++    private float mWidthScaleFactor = 1.0f;
++    private int mPreviewHeight;
++    private float mHeightScaleFactor = 1.0f;
++    private int mFacing = CameraSource.CAMERA_FACING_BACK;
++    private Set<Graphic> mGraphics = new HashSet<>();
++
++    /**
++     * Base class for a custom graphics object to be rendered within the graphic overlay.  Subclass
++     * this and implement the {@link Graphic#draw(Canvas)} method to define the
++     * graphics element.  Add instances to the overlay using {@link GraphicOverlay#add(Graphic)}.
++     */
++    public static abstract class Graphic {
++        private GraphicOverlay mOverlay;
++
++        public Graphic(GraphicOverlay overlay) {
++            mOverlay = overlay;
++        }
++
++        /**
++         * Draw the graphic on the supplied canvas.  Drawing should use the following methods to
++         * convert to view coordinates for the graphics that are drawn:
++         * <ol>
++         * <li>{@link Graphic#scaleX(float)} and {@link Graphic#scaleY(float)} adjust the size of
++         * the supplied value from the preview scale to the view scale.</li>
++         * <li>{@link Graphic#translateX(float)} and {@link Graphic#translateY(float)} adjust the
++         * coordinate from the preview's coordinate system to the view coordinate system.</li>
++         * </ol>
++         *
++         * @param canvas drawing canvas
++         */
++        public abstract void draw(Canvas canvas);
++
++        /**
++         * Adjusts a horizontal value of the supplied value from the preview scale to the view
++         * scale.
++         */
++        public float scaleX(float horizontal) {
++            return horizontal * mOverlay.mWidthScaleFactor;
++        }
++
++        /**
++         * Adjusts a vertical value of the supplied value from the preview scale to the view scale.
++         */
++        public float scaleY(float vertical) {
++            return vertical * mOverlay.mHeightScaleFactor;
++        }
++
++        /**
++         * Adjusts the x coordinate from the preview's coordinate system to the view coordinate
++         * system.
++         */
++        public float translateX(float x) {
++            if (mOverlay.mFacing == CameraSource.CAMERA_FACING_FRONT) {
++                return mOverlay.getWidth() - scaleX(x);
++            } else {
++                return scaleX(x);
++            }
++        }
++
++        /**
++         * Adjusts the y coordinate from the preview's coordinate system to the view coordinate
++         * system.
++         */
++        public float translateY(float y) {
++            return scaleY(y);
++        }
++
++        public void postInvalidate() {
++            mOverlay.postInvalidate();
++        }
++    }
++
++    public GraphicOverlay(Context context, AttributeSet attrs) {
++        super(context, attrs);
++    }
++
++    /**
++     * Removes all graphics from the overlay.
++     */
++    public void clear() {
++        synchronized (mLock) {
++            mGraphics.clear();
++        }
++        postInvalidate();
++    }
++
++    /**
++     * Adds a graphic to the overlay.
++     */
++    public void add(Graphic graphic) {
++        synchronized (mLock) {
++            mGraphics.add(graphic);
++        }
++        postInvalidate();
++    }
++
++    /**
++     * Removes a graphic from the overlay.
++     */
++    public void remove(Graphic graphic) {
++        synchronized (mLock) {
++            mGraphics.remove(graphic);
++        }
++        postInvalidate();
++    }
++
++    /**
++     * Sets the camera attributes for size and facing direction, which informs how to transform
++     * image coordinates later.
++     */
++    public void setCameraInfo(int previewWidth, int previewHeight, int facing) {
++        synchronized (mLock) {
++            mPreviewWidth = previewWidth;
++            mPreviewHeight = previewHeight;
++            mFacing = facing;
++        }
++        postInvalidate();
++    }
++
++    /**
++     * Draws the overlay with its associated graphic objects.
++     */
++    @Override
++    protected void onDraw(Canvas canvas) {
++        super.onDraw(canvas);
++
++        synchronized (mLock) {
++            if ((mPreviewWidth != 0) && (mPreviewHeight != 0)) {
++                mWidthScaleFactor = (float) canvas.getWidth() / (float) mPreviewWidth;
++                mHeightScaleFactor = (float) canvas.getHeight() / (float) mPreviewHeight;
++            }
++
++            for (Graphic graphic : mGraphics) {
++                graphic.draw(canvas);
++            }
++        }
++    }
++}
+Index: app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/Helper/RectOverlay.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/Helper/RectOverlay.java	(date 1605732115610)
++++ app/src/main/java/edu/floridapoly/mobiledeviceapps/fall20/brycepalmer/manit/Helper/RectOverlay.java	(date 1605732115610)
+@@ -0,0 +1,39 @@
++package edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.Helper;
++
++import android.graphics.Canvas;
++import android.graphics.Color;
++import android.graphics.Paint;
++import android.graphics.Rect;
++import android.graphics.RectF;
++
++public class RectOverlay extends GraphicOverlay.Graphic{
++
++    private static final int RECT_COLOR = Color.YELLOW;
++    private static final float STROKE_WIDTH = 8.0f;
++
++    private final Paint rectPaint;
++    private  final Rect bounds;
++
++    public RectOverlay(GraphicOverlay overlay, Rect bounds) {
++        super(overlay);
++
++        this.bounds = bounds;
++        rectPaint = new Paint();
++        rectPaint.setColor(RECT_COLOR);
++        rectPaint.setStyle(Paint.Style.STROKE);
++        rectPaint.setStrokeWidth(STROKE_WIDTH);
++
++        postInvalidate();
++    }
++
++    @Override
++    public void draw(Canvas canvas) {
++        if (bounds == null) {
++            throw new IllegalStateException("Attempting to draw null bounds");
++            //return;
++        }
++        RectF rectF = new RectF(bounds);
++        canvas.drawRect(rectF, rectPaint);
++
++    }
++}
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nbuildscript {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n    dependencies {\r\n        classpath \"com.android.tools.build:gradle:4.0.1\"\r\n\r\n        // NOTE: Do not place your application dependencies here; they belong\r\n        // in the individual module build.gradle files\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n}\r\n\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}\r\n\r\next{\r\n    roomVersion = '2.2.1'\r\n    archLifecycleVersion = '2.2.0'\r\n    coreTestingVersion = '2.1.0'\r\n    materialVersion = '1.0.0'\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision d00d755471a0f7ce957fae86e1c77546524b643c)
++++ build.gradle	(date 1605732494513)
+@@ -5,7 +5,8 @@
+         jcenter()
+     }
+     dependencies {
+-        classpath "com.android.tools.build:gradle:4.0.1"
++        classpath 'com.android.tools.build:gradle:4.1.1'
++        classpath 'com.google.gms:google-services:4.3.4'
+ 
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
+@@ -14,6 +15,7 @@
+ 
+ allprojects {
+     repositories {
++        mavenLocal()
+         google()
+         jcenter()
+     }

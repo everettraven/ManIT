@@ -34,7 +34,7 @@ public class wifi_scan extends AppCompatActivity {
     }
 
     public void clicked_previousScanButton(View view) {
-        Intent wapmap_intent = new Intent(wifi_scan.this, WiFiMapsActivity.class);
+        //Intent wapmap_intent = new Intent(wifi_scan.this, WiFiMapsActivity.class);
         //startActivity(previousScan_intent);
     }
 

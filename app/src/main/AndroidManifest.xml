@@ -34,9 +34,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".WiFiMapsActivity"
-            android:label="@string/title_activity_wi_fi_maps"></activity>
         <activity android:name=".ValidateWAP" />
         <activity android:name=".PhysicalInventory_List_Details" />
         <activity android:name=".PhysicalInventory_Lists" />

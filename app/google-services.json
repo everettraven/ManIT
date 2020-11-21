@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "953470791279",
+    "firebase_url": "https://manit-524a0.firebaseio.com",
+    "project_id": "manit-524a0",
+    "storage_bucket": "manit-524a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953470791279:android:8b3d70cd77b53abe17279a",
+        "android_client_info": {
+          "package_name": "edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "953470791279-5mf519ui6n00ihg53mkka54a80b6c0iu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmSHQ4oNjO1B2R6Rg2qyox3uiO3ESgI1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "953470791279-5mf519ui6n00ihg53mkka54a80b6c0iu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

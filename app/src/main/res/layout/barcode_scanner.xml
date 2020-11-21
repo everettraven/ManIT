@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BarcodeScanner">
+
+    <com.wonderkiln.camerakit.CameraView
+        android:id="@+id/cameraview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <edu.floridapoly.mobiledeviceapps.fall20.brycepalmer.manit.Helper.GraphicOverlay
+            android:id="@+id/graphic_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/viewFinder"
+            android:layout_width="210dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            app:srcCompat="@drawable/focus_marker_fill" />
+
+
+    </com.wonderkiln.camerakit.CameraView>
+
+    <Button
+        android:id="@+id/btn_detect"
+        android:text="DETECT"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </Button>
+
+
+
+</RelativeLayout>
